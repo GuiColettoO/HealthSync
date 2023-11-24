@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>User for add</h2>
+
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    @foreach (var item in ViewBag.users)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                <button onclick="workout.value = @item.Id" type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Add
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+<a asp-action="info" asp-route-id="@ViewBag.workout.Id" class="btn btn-primary">Voltar</a>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you really want to remove the menu?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="add">
+                    <input type="hidden" name="InfoUserId" id="workout" />
+                    <input type="hidden" name="TrainnerId" value="@ViewBag.workout.Id" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-primary">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

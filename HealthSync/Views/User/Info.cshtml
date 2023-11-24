@@ -1,0 +1,28 @@
+﻿@model InfoUser;
+
+@{
+    ViewData["Title"] = "Info";
+}
+
+<table class="table table-striped">
+    <h1>Info User</h1>
+    <tr>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Type Restriction Medic</th>
+        <th>Type Restriction Trainne</th>
+        <th>Goal</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>@Model.Weight</td>
+        <td>@Model.Height</td>
+        <td>@Model.TypeRestrictionMedic</td>
+        <td>@Model.TypeRestrictionTrainne</td>
+        <td>@Model.Goal</td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-outline-dark">Edit</a>
+        </td>
+    </tr>
+</table>
+<a asp-action="Index" asp-route-id="@Model.Id" class="btn btn-primary">Back to Home</a>

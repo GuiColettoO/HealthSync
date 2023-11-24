@@ -1,0 +1,26 @@
+﻿@model Workout;
+
+<div class="mb-3">
+    <label asp-for="TypeWorkout"></label>
+    <select asp-for="TypeWorkout" asp-items="@Html.GetEnumSelectList<TypeWorkout>()" class="form-control">
+        <option>Selecione</option>
+    </select>
+</div>
+<div class="mb-3">
+    <label asp-for="Description"></label>
+    <input asp-for="Description" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="QtdForWeek"></label>
+    <input asp-for="QtdForWeek" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="QtdTime"></label>
+    <input asp-for="QtdTime" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Trainner"></label>
+    <select asp-for="TrainnerId" asp-items="@ViewBag.trainners" class="form-control">
+        <option value="">Select a Trainner</option>
+    </select>
+</div>

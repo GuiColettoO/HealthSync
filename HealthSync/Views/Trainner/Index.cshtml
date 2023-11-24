@@ -1,0 +1,49 @@
+﻿@model List<InfoUser>;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+
+<table class="table table-striped">
+    <h1>Users</h1>
+    <form class="row mb-3" asp-action="index" method="get">
+        <div class="col-4">
+            <input type="text" class="form-control" name="termoBusca"
+                   placeholder="Digite o título" />
+            <button class="btn btn-success">Pesquisar</button>
+        </div>
+
+    </form>
+
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Type Restriction Trainne</th>
+        <th>Goal</th>
+        <th></th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.Age</td>
+            <td>@user.Weight</td>
+            <td>@user.Height</td>
+            <td>@user.TypeRestrictionTrainne</td>
+            <td>@user.Goal</td>
+            <td>
+                <a class="btn btn-primary" asp-action="CreateWorkout" asp-controller="Trainner">Create Workout</a>
+            </td>
+        </tr>
+    }
+</table>
+<a class="btn btn-primary" asp-action="Workouts" asp-controller="Trainner">Workouts</a>

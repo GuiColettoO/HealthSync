@@ -1,0 +1,22 @@
+﻿@model Workout
+@{
+    ViewData["Title"] = "Workouts";
+}
+
+<table class="table table-striped">
+    <h1>Workout</h1>
+    <tr>
+        <th>Type Workout</th>
+        <th>Description</th>
+        <th>Quantity for Week</th>
+        <th>Quantity Time</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>@Model.TypeWorkout</td>
+        <td>@Model.Description</td>
+        <td>@Model.QtdForWeek</td>
+        <td>@Model.QtdTime</td>
+    </tr>
+</table>
+<a asp-action="Index" asp-route-id="@Model.Id" class="btn btn-primary">Back to Home</a>

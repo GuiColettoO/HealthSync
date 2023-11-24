@@ -1,0 +1,29 @@
+﻿@model Menu;
+
+<div class="mb-3">
+    <label asp-for="NumberOfDays"></label>
+    <input asp-for="NumberOfDays" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Breakfast"></label>
+    <input asp-for="Breakfast" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Lunch"></label>
+    <input asp-for="Lunch" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="AfternoonSnack"></label>
+    <input asp-for="AfternoonSnack" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Dinner"></label>
+    <input asp-for="Dinner" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Medic"></label>
+    <select asp-for="MedicId" asp-items="@ViewBag.medics" class="form-control">
+        <option value="">Selecione um médico</option>
+    </select>
+</div>
+

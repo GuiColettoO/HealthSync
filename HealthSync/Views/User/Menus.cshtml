@@ -1,0 +1,23 @@
+﻿@model Menu
+@{
+    ViewData["Title"] = "Menus";
+}
+
+<table class="table table-striped">
+    <h1>Menus</h1>
+    <tr>
+        <th>Lunch</th>
+        <th>Breakfast</th>
+        <th>Dinner</th>
+        <th>AfternoonSnack</th>
+        <th>Days</th>
+    </tr>
+    <tr>
+        <td>@Model.Lunch</td>
+        <td>@Model.Breakfast</td>
+        <td>@Model.Dinner</td>
+        <td>@Model.AfternoonSnack</td>
+        <td>@Model.NumberOfDays</td>
+    </tr>
+</table>
+<a asp-action="Index" asp-route-id="@Model.Id" class="btn btn-primary">Back to Home</a>

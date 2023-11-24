@@ -1,0 +1,46 @@
+﻿@model InfoUser;
+
+<input type="hidden" asp-for="@Model.Id">
+<div class="mb-3">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Email"></label>
+    <input asp-for="Email" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Password"></label>
+    <input asp-for="Password" class="form-control" type="password" />
+</div>
+<div class="mb-3">
+    <label asp-for="DateofBirth"></label>
+    <input asp-for="DateofBirth" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Age"></label>
+    <input asp-for="Age" class="form-control" />
+</div>
+<fieldset>
+    <legend>Informações Adicionais</legend>
+    <div class="mb-3">
+        <label asp-for="Weight"></label>
+        <input asp-for="Weight" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Height"></label>
+        <input asp-for="Height" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="TypeRestrictionMedic"></label>
+        <input asp-for="TypeRestrictionMedic" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="TypeRestrictionTrainne"></label>
+        <input asp-for="TypeRestrictionTrainne" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Goal"></label>
+        <input asp-for="Goal" class="form-control" />
+    </div>
+</fieldset>

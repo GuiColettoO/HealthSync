@@ -1,0 +1,61 @@
+﻿@model List<Menu>
+@{
+    ViewData["Title"] = "Menus";
+}
+
+<table class="table table-striped">
+    <h1>Menus</h1>
+    <tr>
+        <th>Name</th>
+        <th>CRM</th>
+        <th>Lunch</th>
+        <th>Breakfast</th>
+        <th>Dinner</th>
+        <th>AfternoonSnack</th>
+        <th>Days</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var menu in Model)
+    {
+        <tr>
+            <td>@menu.Medic.Name</td>
+            <td>@menu.Medic.NumberofCredential</td>
+            <td>@menu.Lunch</td>
+            <td>@menu.Breakfast</td>
+            <td>@menu.Dinner</td>
+            <td>@menu.AfternoonSnack</td>
+            <td>@menu.NumberOfDays</td>
+            <td>
+                <a asp-action="Info" asp-route-id="@menu.Id" class="btn btn-sm btn-outline-primary">Info</a>
+                <a asp-action="Edit" asp-route-id="@menu.Id" class="btn btn-sm btn-outline-dark">Edit</a>
+                <button onclick="menu.value = @menu.Id" type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Index" class="btn btn-primary">Back to Home</a>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir o menu?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="Remove">
+                    <input type="hidden" name="id" id="menu" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@model List<InfoUser>;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-striped">
+    <h1>Users</h1>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Type Restriction Medic</th>
+        <th>Goal</th>
+        <th></th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.Age</td>
+            <td>@user.Weight</td>
+            <td>@user.Height</td>
+            <td>@user.TypeRestrictionMedic</td>
+            <td>@user.Goal</td>
+            <td>
+                <a class="btn btn-sm btn-outline-primary" asp-action="CreateMenu" asp-controller="Medic">Create Menu</a>
+            </td>
+        </tr>
+    }
+</table>
+<a class="btn btn-primary" asp-action="Menus" asp-controller="Medic">Menus</a>

@@ -1,0 +1,11 @@
+﻿@model InfoUser
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>HOME</h1>
+
+<a asp-action="Info" asp-controller="User" asp-route-id="@Model.Id" class="btn btn-primary">Info</a>
+<a asp-action="Menus" asp-controller="User" asp-route-id="@Model.Id" class="btn btn-primary">Acess to Menus</a>
+<a asp-action="Workouts" asp-controller="User" asp-route-id="@Model.Id" class="btn btn-primary">Acess to Workouts</a>

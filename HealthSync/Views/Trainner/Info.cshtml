@@ -1,0 +1,41 @@
+﻿@model Workout
+
+@{
+    ViewData["Title"] = "Info";
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>Type Workout</th>
+        <th>Description</th>
+        <th>Quantity For Week</th>
+        <th>Number Of Days</th>
+        <th>Trainner</th>
+    </tr>
+    <tr>
+        <td>@Model.TypeWorkout</td>
+        <td>@Model.Description</td>
+        <td>@Model.QtdForWeek</td>
+        <td>@Model.QtdTime</td>
+        <td>@Model.Trainner?.Name</td>
+    </tr>
+</table>
+<div class="d-flex justify-content-between">
+    <h2>Users</h2>
+    <a asp-action="add" asp-route-id="@Model.Id"
+       class="btn btn-primary h-25">+</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in ViewBag.users)
+    {
+        <tr>
+            <td>@item.Name</td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Index" class="btn btn-primary">Back to Home</a>

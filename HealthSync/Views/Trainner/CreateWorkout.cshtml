@@ -1,0 +1,13 @@
+﻿@model Workout;
+
+@{
+    ViewData["Title"] = "CreateWorkout";
+}
+
+<h1>Register your menu</h1>
+
+<form asp-action="CreateWorkout">
+    <partial name="_Form" />
+    <button class="btn btn-primary">Register</button>
+    <a asp-action="Index" class="btn btn-primary">Back to Home</a>
+</form>

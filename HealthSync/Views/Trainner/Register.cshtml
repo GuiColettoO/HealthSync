@@ -1,0 +1,43 @@
+﻿@model Trainner;
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+
+<h1>Register your account</h1>
+
+<form asp-action="Register">
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" type="password" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DateofBirth"></label>
+        <input asp-for="DateofBirth" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Age"></label>
+        <input asp-for="Age" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="NumberofCredential"></label>
+        <input asp-for="NumberofCredential" class="form-control" />
+    </div>
+    <button class="btn btn-primary">Register</button>
+    <a asp-action="Login" class="btn btn-primary">Back to Login</a>
+</form>

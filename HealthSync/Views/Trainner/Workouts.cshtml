@@ -1,0 +1,59 @@
+﻿@model List<Workout>
+@{
+    ViewData["Title"] = "Workouts";
+}
+
+<table class="table table-striped">
+    <h1>Workout</h1>
+    <tr>
+        <th>Name</th>
+        <th>CRM</th>
+        <th>Type Workout</th>
+        <th>Description</th>
+        <th>Quantity for Week</th>
+        <th>Quantity Time</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var workout in Model)
+    {
+        <tr>
+            <td>@workout.Trainner.Name</td>
+            <td>@workout.Trainner.NumberofCredential</td>
+            <td>@workout.TypeWorkout</td>
+            <td>@workout.Description</td>
+            <td>@workout.QtdForWeek</td>
+            <td>@workout.QtdTime</td>
+            <td>
+                <a asp-action="Info" asp-route-id="@workout.Id" class="btn btn-sm btn-outline-primary">Info</a>
+                <a asp-action="Edit" asp-route-id="@workout.Id" class="btn btn-sm btn-outline-dark">Edit</a>
+                <button onclick="workout.value = @workout.Id" type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir o menu?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="Remove">
+                    <input type="hidden" name="id" id="workout" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-primary">Back to Home</a>

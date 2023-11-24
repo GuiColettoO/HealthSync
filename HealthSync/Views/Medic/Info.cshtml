@@ -1,0 +1,44 @@
+﻿@model Menu
+
+@{
+    ViewData["Title"] = "Info";
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>Dinner</th>
+        <th>Breakfast</th>
+        <th>Afternoon Snack</th>
+        <th>Lunch</th>
+        <th>Number Of Days</th>
+        <th>Medic</th>
+    </tr>
+    <tr>
+        <td>@Model.Dinner</td>
+        <td>@Model.Breakfast</td>
+        <td>@Model.AfternoonSnack</td>
+        <td>@Model.Lunch</td>
+        <td>@Model.NumberOfDays</td>
+        <td>@Model.Medic?.Name</td>
+    </tr>
+</table>
+
+<div class="d-flex justify-content-between">
+    <h2>Users</h2>
+    <a asp-action="add" asp-route-id="@Model.Id"
+       class="btn btn-primary h-25">+</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in ViewBag.users)
+    {
+        <tr>
+            <td>@item.Name</td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Index" class="btn btn-primary">Back to Home</a>

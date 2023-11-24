@@ -1,0 +1,20 @@
+﻿@model Trainner;
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Faça o seu login</h1>
+
+<form asp-action="login">
+    <div class="mb-3">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" type="password" />
+    </div>
+    <button class="btn btn-primary">Login</button>
+    <a asp-action="Register" class="btn btn-primary">Register</a>
+</form>
